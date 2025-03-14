@@ -65,18 +65,26 @@ return {
     end,
   },
   {
-    "mistricky/codesnap.nvim",
-    build = "make",
-    keys = {
-      { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
-      { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
-    },
-    opts = {
-      save_path = "~/Pictures",
-      has_breadcrumbs = true,
-      bg_theme = "summer",
-      watermark = "THA",
-      show_workspace = true,
-    },
+    "RRethy/vim-illuminate",
+    event = "LazyFile",
+    config = function()
+      vim.cmd([[:hi IlluminatedWordRead guibg=#504945 gui=underline cterm=underline guisp=#689d6a blend=5]])
+      vim.cmd([[:hi IlluminatedWordWrite guibg=#504945 gui=underline cterm=underline guisp=#cc241d blend=5]])
+    end,
   },
+  -- {
+  --   "mistricky/codesnap.nvim",
+  --   build = "make",
+  --   keys = {
+  --     { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
+  --     { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
+  --   },
+  --   opts = {
+  --     save_path = "~/Pictures",
+  --     has_breadcrumbs = true,
+  --     bg_theme = "summer",
+  --     watermark = "THA",
+  --     show_workspace = true,
+  --   },
+  -- },
 }

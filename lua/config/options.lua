@@ -6,16 +6,22 @@ vim.g.mapleader = "\\"
 local opt = vim.opt
 
 vim.wo.number = true
-vim.scriptencoding = "utf-8"
 
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
+vim.scriptencoding = "utf-8"
+
 opt.shell = "zsh"
+
 opt.winblend = 0
+opt.pumblend = 5
+opt.cursorline = true
+opt.termguicolors = true
+opt.wildoptions = "pum"
+opt.foldenable = true
+
 opt.spell = true
 opt.spelloptions = "camel"
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
-
-vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#A6E22E", bg = nil, bold = true })

@@ -20,12 +20,19 @@ return {
       invert_tabline = false,
       invert_intend_guides = false,
       inverse = true,
-      contrast = "soft", -- can be "hard", "soft" or empty string
+      contrast = "", -- can be "hard", "soft" or empty string
       palette_overrides = {},
-      overrides = {},
+      overrides = {
+        CursorLine = { bg = "#3c3836", blend = 10 },
+      },
       dim_inactive = true,
       transparent_mode = true,
     },
+    config = function()
+      vim.o.background = "dark"
+      vim.cmd([[colorscheme gruvbox]])
+      vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec07c blend=20]])
+    end,
   },
   {
     "rose-pine/neovim",
@@ -122,10 +129,10 @@ return {
       })
     end,
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "gruvbox",
+  --   },
+  -- },
 }
