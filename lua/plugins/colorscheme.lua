@@ -34,7 +34,7 @@ return {
       transparent_mode = true,
     },
     config = function()
-      vim.o.background = "dark"
+      vim.o.background = "light"
       vim.cmd([[colorscheme gruvbox]])
       vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec0 blend=10]])
     end,

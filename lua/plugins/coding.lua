@@ -68,8 +68,8 @@ return {
     "RRethy/vim-illuminate",
     event = "LazyFile",
     config = function()
-      vim.cmd([[:hi IlluminatedWordRead guibg=#504945 gui=underline cterm=underline guisp=#689d6a blend=5]])
-      vim.cmd([[:hi IlluminatedWordWrite guibg=#504945 gui=underline cterm=underline guisp=#cc241d blend=5]])
+      vim.cmd([[:hi IlluminatedWordRead guibg=#d5c4a1 gui=underline cterm=underline guisp=#d65d0e blend=5]])
+      vim.cmd([[:hi IlluminatedWordWrite guibg=#d5c4a1 gui=underline cterm=underline guisp=#cc241d blend=5]])
     end,
   },
   -- {

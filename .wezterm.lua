@@ -63,7 +63,10 @@ end)
 local config = wezterm.config_builder()
 
 config.font = wezterm.font_with_fallback({
-	{ family = "JetBrainsMono Nerd Font", weight = "Regular" },
+	{ family = "Lilex Nerd Font Mono", weight = "Medium" },
+	-- { family = "GeistMono Nerd Font Mono", weight = "Regular" },
+	-- { family = "JetBrainsMonoNL Nerd Font", weight = "Regular" },
+	{ family = "MonaspiceAr Nerd Font Propo", weight = "Regular" },
 	{ family = "Noto Sans Mono CJK JP" },
 	{ family = "Source Han Sans" },
 	"Noto Color Emoji",
@@ -83,7 +86,7 @@ config.max_fps = 240
 config.check_for_updates = true
 config.check_for_updates_interval_seconds = 86400
 
-config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "Gruvbox (Gogh)"
 config.font_size = 13
 config.font_shaper = "Harfbuzz"
 
@@ -103,7 +106,7 @@ config.inactive_pane_hsb = {
 }
 
 config.window_frame = {
-	font = wezterm.font({ family = "JetBrains Mono", weight = "Regular" }),
+	font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Regular" }),
 	font_size = 13.0,
 }
 
@@ -111,9 +114,9 @@ config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_ime = true
 
-config.window_background_opacity = 0.9
-config.macos_window_background_blur = 40
-config.text_background_opacity = 0.9
+config.window_background_opacity = 0.95
+config.macos_window_background_blur = 90
+config.text_background_opacity = 1
 
 -- Keys binding
 config.keys = {
