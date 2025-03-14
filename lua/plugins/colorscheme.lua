@@ -3,6 +3,11 @@ return {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
       terminal_colors = true,
       undercurl = true,
       underline = true,
@@ -20,7 +25,7 @@ return {
       invert_tabline = false,
       invert_intend_guides = false,
       inverse = true,
-      contrast = "", -- can be "hard", "soft" or empty string
+      contrast = "soft", -- can be "hard", "soft" or empty string
       palette_overrides = {},
       overrides = {
         CursorLine = { bg = "#3c3836", blend = 10 },
@@ -31,7 +36,7 @@ return {
     config = function()
       vim.o.background = "dark"
       vim.cmd([[colorscheme gruvbox]])
-      vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec07c blend=20]])
+      vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec0 blend=10]])
     end,
   },
   {
