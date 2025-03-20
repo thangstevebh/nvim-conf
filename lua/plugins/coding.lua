@@ -32,11 +32,62 @@ return {
   },
   {
     "akinsho/toggleterm.nvim",
+    lazy = true,
+    cmd = "ToggleTerm",
+    keys = {
+      { "<c-\\>", "<cmd>ToggleTerm<cr>", mode = "n", desc = "Toggle terminal" },
+      {
+        "<leader>tf",
+        function()
+          local count = vim.v.count1
+          require("toggleterm").toggle(count, 0, LazyVim.root.get(), "float")
+        end,
+        desc = "ToggleTerm (float root_dir)",
+      },
+      {
+        "<leader>th",
+        function()
+          local count = vim.v.count1
+          require("toggleterm").toggle(count, 15, LazyVim.root.get(), "horizontal")
+        end,
+        desc = "ToggleTerm (horizontal root_dir)",
+      },
+      {
+        "<leader>tv",
+        function()
+          local count = vim.v.count1
+          require("toggleterm").toggle(count, vim.o.columns * 0.4, LazyVim.root.get(), "vertical")
+        end,
+        desc = "ToggleTerm (vertical root_dir)",
+      },
+      {
+        "<leader>tn",
+        "<cmd>TermNew<cr>",
+        desc = "New term",
+      },
+      {
+        "<leader>tr",
+        "<cmd>ToggleTermSetName<cr>",
+        desc = "Set term name",
+      },
+      {
+        "<leader>ts",
+        "<cmd>TermSelect<cr>",
+        desc = "Select term",
+      },
+      {
+        "<leader>T",
+        function()
+          require("toggleterm").toggle(1, 100, vim.loop.cwd(), "tab")
+        end,
+        desc = "ToggleTerm (tab cwd_dir)",
+      },
+    },
     config = function()
       local highlights = require("rose-pine.plugins.toggleterm")
       require("toggleterm").setup({
         open_mapping = [[<c-\>]],
-        hide_numbers = true,
+        hide_numbers = false,
         size = 20,
         shade_filetypes = {},
         direction = "float",
@@ -48,11 +99,9 @@ return {
         close_on_exit = true,
         shell = vim.o.shell,
         auto_scroll = true,
-        float_otps = {
+        float_opts = {
           border = "curved",
-          winblend = 2,
-          width = 1,
-          height = 1,
+          title_pos = "right",
         },
         winbar = {
           enable = false,
@@ -60,7 +109,11 @@ return {
             return term.name
           end,
         },
-        highlights = highlights,
+        highlights = {
+          FloatBorder = {
+            guifg = "#d65d0e",
+          },
+        },
       })
     end,
   },

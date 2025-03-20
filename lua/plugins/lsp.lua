@@ -43,8 +43,8 @@ return {
     },
     event = "BufRead",
     keys = {
-      { "<C-j>", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "diagnostic jump next" },
-      { "<C-k>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "diagnostic jump prev" },
+      { "<M-UP>", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "diagnostic jump next" },
+      { "<M-DOWN>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "diagnostic jump prev" },
       { "<leader>ca", "<cmd>Lspsaga code_action<CR>" },
       { "gf", "<cmd>Lspsaga finder<CR>" },
       -- { "K", "<cmd>Lspsaga hover_doc<CR>" },
