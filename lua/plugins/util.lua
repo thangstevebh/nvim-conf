@@ -5,9 +5,10 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      explorer = { enabled = true, width = 40 },
+      explorer = { enabled = true, replace_netrw = true },
       picker = {
         enabled = true,
+        sources = {},
       },
       animate = {
         speed = 100,
@@ -55,6 +56,7 @@ return {
       input = {
         enabled = true,
       },
+      --- @class snacks.styles.Config
       styles = {
         enabled = true,
         minimal = {
@@ -76,26 +78,18 @@ return {
             sidescrolloff = 0,
           },
         },
-
-        snacks_image = {
-          relative = "editor",
-          border = "rounded",
-          focusable = true,
-          backdrop = true,
-          row = 0.5,
-          col = 0.5,
-        },
       },
       notifier = { enabled = true },
+      ---@class snacks.dashboard.Config
       dashboard = {
         preset = {
           header = [[
-████████╗██╗  ██╗ █████╗ ██████╗ ██╗   ██╗██╗
-╚══██╔══╝██║  ██║██╔══██╗██╔══██╗██║   ██║██║
-   ██║   ███████║███████║██████╔╝██║   ██║██║
-   ██║   ██╔══██║██╔══██║██╔══██╗██║   ██║██║
-   ██║   ██║  ██║██║  ██║██████╔╝╚██████╔╝██║
-   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝
+           ████████╗██╗  ██╗ █████╗ ██████╗ ██╗   ██╗██╗
+           ╚══██╔══╝██║  ██║██╔══██╗██╔══██╗██║   ██║██║
+              ██║   ███████║███████║██████╔╝██║   ██║██║
+              ██║   ██╔══██║██╔══██║██╔══██╗██║   ██║██║
+              ██║   ██║  ██║██║  ██║██████╔╝╚██████╔╝██║
+              ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝
 
           ]],
           keys = {

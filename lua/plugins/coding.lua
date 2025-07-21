@@ -1,5 +1,34 @@
 return {
   {
+    "hedyhli/outline.nvim",
+    cmd = "Outline",
+    keys = { { "<leader>o", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+    opts = function()
+      local defaults = require("outline.config").defaults
+      local opts = {
+        symbols = {
+          icons = {},
+          filter = vim.deepcopy(LazyVim.config.kind_filter),
+        },
+        keymaps = {
+          up_and_jump = "<up>",
+          down_and_jump = "<down>",
+        },
+        outline_window = {
+          width = 20,
+        },
+      }
+
+      for kind, symbol in pairs(defaults.symbols.icons) do
+        opts.symbols.icons[kind] = {
+          icon = LazyVim.config.icons.kinds[kind] or symbol.icon,
+          hl = symbol.hl,
+        }
+      end
+      return opts
+    end,
+  },
+  {
     "uga-rosa/ccc.nvim",
     config = function()
       require("ccc").setup({})
@@ -14,21 +43,6 @@ return {
   {
     "saghen/blink.cmp",
     optional = true,
-    dependencies = { "giuxtaposition/blink-cmp-copilot" },
-    opts = {
-      sources = {
-        default = { "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            kind = "Copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
-      },
-    },
   },
   {
     "akinsho/toggleterm.nvim",
@@ -84,7 +98,6 @@ return {
       },
     },
     config = function()
-      local highlights = require("rose-pine.plugins.toggleterm")
       require("toggleterm").setup({
         open_mapping = [[<c-\>]],
         hide_numbers = false,
@@ -115,29 +128,16 @@ return {
           },
         },
       })
+      local highlights = require("rose-pine.plugins.toggleterm")
+      require("toggleterm").setup({ highlights = highlights })
     end,
   },
   {
     "RRethy/vim-illuminate",
     event = "LazyFile",
     config = function()
-      vim.cmd([[:hi IlluminatedWordRead guibg=#d5c4a1 gui=underline cterm=underline guisp=#d65d0e blend=5]])
-      vim.cmd([[:hi IlluminatedWordWrite guibg=#d5c4a1 gui=underline cterm=underline guisp=#cc241d blend=5]])
+      -- vim.cmd([[:hi IlluminatedWordRead guibg=#076678]])
+      -- vim.cmd([[:hi IlluminatedWordWrite guibg=#076678]])
     end,
   },
-  -- {
-  --   "mistricky/codesnap.nvim",
-  --   build = "make",
-  --   keys = {
-  --     { "<leader>cc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
-  --     { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
-  --   },
-  --   opts = {
-  --     save_path = "~/Pictures",
-  --     has_breadcrumbs = true,
-  --     bg_theme = "summer",
-  --     watermark = "THA",
-  --     show_workspace = true,
-  --   },
-  -- },
 }

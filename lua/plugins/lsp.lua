@@ -1,4 +1,22 @@
 return {
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     ---@class PluginLspOpts
+  --     local ret = {
+  --       servers = {
+  --         protols = {
+  --           settings = {},
+  --         },
+  --       },
+  --     }
+  --
+  --     return ret
+  --   end,
+  --   ---@param opts PluginLspOpts
+  --   config = function(_, opts) end,
+  -- },
+
   {
     "onsails/lspkind.nvim",
     config = function()
@@ -43,8 +61,8 @@ return {
     },
     event = "BufRead",
     keys = {
-      { "<M-UP>", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "diagnostic jump next" },
-      { "<M-DOWN>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "diagnostic jump prev" },
+      { "<M-S-J>", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "diagnostic jump next" },
+      { "<M-S-K>", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "diagnostic jump prev" },
       { "<leader>ca", "<cmd>Lspsaga code_action<CR>" },
       { "gf", "<cmd>Lspsaga finder<CR>" },
       -- { "K", "<cmd>Lspsaga hover_doc<CR>" },
@@ -57,7 +75,7 @@ return {
       { "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>" },
       { "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>" },
       { "<Leader>co", "<cmd>Lspsaga outgoing_calls<CR>" },
-      { "<Leader>o", "<cmd>Lspsaga outline<CR>" },
+      -- { "<Leader>o", "<cmd>Lspsaga outline<CR>" },
     },
     config = function()
       local opts = { noremap = true, silent = true }

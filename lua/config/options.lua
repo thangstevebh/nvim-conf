@@ -20,6 +20,7 @@ opt.termguicolors = true
 opt.wildoptions = "pum"
 opt.foldenable = true
 
+opt.spelllang = "en_us"
 opt.spell = true
 opt.spelloptions = "camel"
 

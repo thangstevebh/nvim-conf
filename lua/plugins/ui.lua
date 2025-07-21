@@ -40,9 +40,8 @@ return {
       },
     },
     config = function()
-      local p = require("rose-pine.palette")
-
       require("bufferline").setup({
+        -- highlights = highlights,
         -- highlights = {
         --   -- fill = {
         --   -- 	fg = p.text,
@@ -77,7 +76,11 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    options = { theme = "gruvbox" },
+    options = {
+      --- @usage 'rose-pine' | 'rose-pine-alt'
+      theme = "rose-pine",
+      -- theme = "gruvbox"
+    },
   },
 
   {
@@ -109,7 +112,7 @@ return {
   {
     "xiyaowong/transparent.nvim",
     config = function()
-      local transparent = require("transparent").setup({
+      require("transparent").setup({
         groups = { -- table: default groups
           "Normal",
           "NormalNC",
@@ -128,14 +131,15 @@ return {
           "Repeat",
           "Operator",
           "Structure",
-          "LineNr",
           "NonText",
           "SignColumn",
-          "CursorLineNr",
+          "LineNr",
           "EndOfBuffer",
           "NormalFloat",
           "Pmenu",
           "Float",
+          "StatusLine",
+          "StatusLineNC",
         },
         extra_groups = {
           "IndentBlanklineChar",

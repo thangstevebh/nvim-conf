@@ -1,51 +1,51 @@
 return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-      terminal_colors = true,
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = true,
-        emphasis = true,
-        comments = true,
-        operators = false,
-        folds = true,
-      },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true,
-      contrast = "soft", -- can be "hard", "soft" or empty string
-      palette_overrides = {},
-      overrides = {
-        CursorLine = { bg = "#3c3836", blend = 10 },
-      },
-      dim_inactive = true,
-      transparent_mode = true,
-    },
-    config = function()
-      vim.o.background = "light"
-      vim.cmd([[colorscheme gruvbox]])
-      vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec0 blend=10]])
-    end,
-  },
+  -- Using lazy.nvim
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --     terminal_colors = true,
+  --     undercurl = true,
+  --     underline = true,
+  --     bold = true,
+  --     italic = {
+  --       strings = true,
+  --       emphasis = true,
+  --       comments = true,
+  --       operators = false,
+  --       folds = true,
+  --     },
+  --     strikethrough = true,
+  --     invert_selection = false,
+  --     invert_signs = false,
+  --     invert_tabline = false,
+  --     invert_intend_guides = false,
+  --     inverse = true,
+  --     contrast = "soft", -- can be "hard", "soft" or empty string
+  --     palette_overrides = {},
+  --     overrides = {},
+  --     dim_inactive = true,
+  --     transparent_mode = true,
+  --   },
+  --   config = function()
+  --     vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#FF6363" })
+  --     vim.o.background = "dark"
+  --     vim.cmd([[colorscheme gruvbox]])
+  --     vim.cmd([[:hi SpellBad cterm=underline gui=undercurl guisp=#8ec0 blend=10]])
+  --   end,
+  -- },
   {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
       require("rose-pine").setup({
-        variant = "moon", -- auto, main, moon, or dawn
-        dark_variant = "moon", -- main, moon, or dawn
+        variant = "auto", -- auto, main, moon, or dawn
+        dark_variant = "dawn", -- main, moon, or dawn
         dim_inactive_windows = true,
         extend_background_behind_borders = true,
 
@@ -103,14 +103,9 @@ return {
         highlight_groups = {
           Comment = { fg = "muted" },
           VertSplit = { fg = "muted", bg = "muted" },
-          -- CursorLine = { bg = "gold", blend = 20 },
-          Visual = { bg = "#907aa9", fg = "#f6c177", blend = 10 },
+          Visual = { fg = "pine", bg = "text", inherit = false, blend = 20 },
           DiagnosticUnnecessary = { bg = "#ea9a97", fg = "muted", blend = 20 },
-          String = { fg = "#88c273" },
-          Keyword = { fg = "gold" },
-          Statement = { fg = "#DBA979" },
-          NormalFloat = { bg = "muted" },
-          FloatBorder = { fg = "muted" },
+          String = { fg = "#5E936C" },
         },
         highlight = {
           SpellBad = {
@@ -132,12 +127,7 @@ return {
           -- end
         end,
       })
+      vim.cmd("colorscheme rose-pine-dawn")
     end,
   },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "gruvbox",
-  --   },
-  -- },
 }

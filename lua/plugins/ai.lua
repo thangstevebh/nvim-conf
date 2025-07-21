@@ -83,9 +83,9 @@ return {
     branch = "main",
     cmd = "CopilotChat",
     opts = function()
-      local user = "THC"
+      local user = "THA"
       user = user:sub(1, 1):upper() .. user:sub(2)
-      local model = "claude-3.7-sonnet-thought"
+      local model = "claude-sonnet-4"
       return {
         model = model,
         auto_insert_mode = true,

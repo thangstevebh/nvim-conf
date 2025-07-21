@@ -9,3 +9,4 @@
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- vim.cmd("colorscheme rose-pine-moon")
+vim.api.nvim_set_hl(0, "SnacksPickerPathHidden", { fg = "#928374" })
